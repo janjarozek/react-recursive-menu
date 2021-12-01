@@ -25,52 +25,52 @@ export default function NavItemHeader( props ) {
     // }, [])
 
     return (
-        <>
-      <button
-        className={`navItem navItemHeaderButton`}
-        onClick={onExpandChange}
-      >
-        <Icon className="navIcon" />
-        <span className="navLabel">{label}</span>
-        <ChevronDownIcon
-          className={`navItemHeaderChevron ${expanded?"chevronExpanded":""}`}
-        />
-      </button>
+      <>
+        <button
+          className={`navItem navItemHeaderButton`}
+          onClick={onExpandChange}
+        >
+          <Icon className="navIcon" />
+          <span className="navLabel">{label}</span>
+          <ChevronDownIcon
+            className={`navItemHeaderChevron ${expanded?"chevronExpanded":""}`}
+          />
+        </button>
 
-      {expanded && (
-        <div className="navChildrenBlock">
-          {children.map((item, index) => {
-            const key = `${item.label}-${index}`;
+        {expanded && (
+          <div className="navChildrenBlock">
+            {children.map((item, index) => {
+              const key = `${item.label}-${index}`;
 
-            const { label, Icon, children } = item;
+              const { label, Icon, children } = item;
 
-            if (children) {
+              if (children) {
+                return (
+                  <div key={key}>
+                    <NavItemHeader
+                      item={{
+                        ...item,
+                        to: resolveLinkPath(item.to, props.item.to),
+                      }}
+                    />
+                  </div>
+                );
+              }
+
               return (
-                <div key={key}>
-                  <NavItemHeader
-                    item={{
-                      ...item,
-                      to: resolveLinkPath(item.to, props.item.to),
-                    }}
-                  />
-                </div>
+                <NavLink
+                  key={key}
+                  to={resolveLinkPath(item.to, props.item.to)}
+                  className="navItem"
+                  activeClassName="activeNavItem"
+                >
+                  <Icon className="navIcon" />
+                  <span className="navLabel">{label}</span>
+                </NavLink>
               );
-            }
-
-            return (
-              <NavLink
-                key={key}
-                to={resolveLinkPath(item.to, props.item.to)}
-                className="navItem"
-                activeClassName="activeNavItem"
-              >
-                <Icon className="navIcon" />
-                <span className="navLabel">{label}</span>
-              </NavLink>
-            );
-          })}
-        </div>
-      )}
-    </>
+            })}
+          </div>
+        )}
+      </>
     )
 }
