@@ -5,7 +5,7 @@ import TwoFa from './TwoFa'
 export default function Security() {
     return (
         <div>
-            <h2>Security</h2>
+            <h1>Security</h1>
 
             <TwoFa />
             <Credentials />

@@ -1,10 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
+// import { NavLink, useNavigate } from 'react-router-dom';
 import './navItem.scss';
 import NavItemHeader from './NavItemHeader';
 
 export default function NavItem( props ) {
     const { label, Icon, to, children } = props.item;
+    // let navigate = useNavigate();
 
     if (children) {
         return <NavItemHeader item={props.item} />;

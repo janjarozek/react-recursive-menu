@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Footer from '../../footer/Footer';
 import Sidebar from '../../sidebar';
 
 import './styles.scss'
@@ -13,7 +14,9 @@ export default class Layout extends Component {
                     <Sidebar />
                 </aside>
                 <main className="main">{children}</main>
-                <footer className="footer"></footer>
+                <footer className="footer">
+                    <Footer />
+                </footer>
             </div>
         )
     }

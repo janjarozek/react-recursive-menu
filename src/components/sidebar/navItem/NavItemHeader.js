@@ -9,6 +9,7 @@ export default function NavItemHeader( props ) {
     const { item } = props;
     const { label, Icon, to: headerToPath, children } = item;
     const location = useLocation();
+    // const navigate = useNavigate();
 
     const [expanded, setExpand] = useState(
         location.pathname.includes(headerToPath)
@@ -18,6 +19,10 @@ export default function NavItemHeader( props ) {
         e.preventDefault();
         setExpand(expanded => !expanded);
     };
+
+    // useEffect(() => {
+    //     navigate(`${item.to}`)
+    // }, [])
 
     return (
         <>

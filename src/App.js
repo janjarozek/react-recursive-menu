@@ -10,6 +10,7 @@ import Settings from './pages/settings/Settings'
 import Credentials from './pages/settings/security/Credentials';
 import TwoFa from './pages/settings/security/TwoFa';
 import Account from './pages/settings/account/Account';
+import Security from './pages/settings/security/Security';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/profile" element={<Profile />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/settings/account" element={<Account />} />
+            <Route path="/settings/security" element={<Security />} />
             <Route path="/settings/security/credentials" element={<Credentials />} />
             <Route path="/settings/security/2fa" element={<TwoFa />} />
           </Routes>
