@@ -5,18 +5,28 @@
     min-height: 100vh;
     .header {
         grid-area: 1/1/2/3;
-        background-color: aqua;
+        background-color: hsl(200, 50%, 50%);
     }
     .aside {
         grid-area: 2/1/4/2;
-        background-color: bisque;
+        // background-color: hsl(200, 50%, 50%);
     }
     .main {
         grid-area: 2/2/3/3;
-        background-color: gold;
+        // background-color: gold;
     }
     .footer {
         grid-area: 3/2/4/3;
-        background-color: darkcyan;
+        // background-color: darkcyan;
+    }
+    h1 {
+        font-family: 'Trebuchet MS';
+        color: hsl(200, 50%, 50%);
+        transition: color .5s;
+    }
+
+    h1:hover {
+        font-family: 'Trebuchet MS';
+        color: hsl(200, 80%, 30%);
     }
 }
